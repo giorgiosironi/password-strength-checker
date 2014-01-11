@@ -8,4 +8,10 @@ class LengthConstraintTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($constraint->isStrong('donald'));
         $this->assertFalse($constraint->isStrong('mickeym'));
     }
+
+    public function testLongerPasswordsAreStrong()
+    {
+        $constraint = new LengthConstraint(7);
+        $this->assertTrue($constraint->isStrong('donalddu'));
+    }
 }
