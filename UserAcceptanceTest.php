@@ -7,7 +7,7 @@ class UserAcceptanceTest extends PHPUnit_Framework_TestCase
         $this->checker = new PasswordStrengthChecker([
             new LengthConstraint(7),
             new AlphabeticConstraint(),
-            new DigitConstraint()
+            new DigitConstraint(),
         ]);
     }
 
