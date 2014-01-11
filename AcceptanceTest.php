@@ -15,6 +15,8 @@ class AcceptanceTest extends PHPUnit_Framework_TestCase
     {
         return [
             ['donald123'],
+            ['123donald'],
+            ['123DONALD'],
         ];
     }
 
@@ -30,6 +32,8 @@ class AcceptanceTest extends PHPUnit_Framework_TestCase
     {
         return [
             ['donald1'],
+            ['donaldduck'],
+            ['12345678'],
         ];
     }
 
