@@ -1,9 +1,9 @@
 <?php
 
-class SpecialConstraint implements Constraint
+class SpecialConstraint extends AtLeastOneConstraint
 {
-    public function isStrong($value)
+    protected function characterClass()
     {
-        return (bool) preg_match('/[^A-Za-z0-9]/', $value);
+        return '[^A-Za-z0-9]';
     }
 }

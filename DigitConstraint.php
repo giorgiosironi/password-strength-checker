@@ -1,9 +1,9 @@
 <?php
 
-class DigitConstraint implements Constraint
+class DigitConstraint extends AtLeastOneConstraint
 {
-    public function isStrong($value)
+    protected function characterClass()
     {
-        return (bool) preg_match('/[0-9]/', $value);
+        return '[0-9]';
     }
 }

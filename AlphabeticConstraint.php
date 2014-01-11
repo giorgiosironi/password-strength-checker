@@ -1,9 +1,9 @@
 <?php
 
-class AlphabeticConstraint implements Constraint
+class AlphabeticConstraint extends AtLeastOneConstraint
 {
-    public function isStrong($value)
+    protected function characterClass()
     {
-        return (bool) preg_match('/[A-Za-z]/', $value);
+        return '[A-Za-z]';
     }
 }
