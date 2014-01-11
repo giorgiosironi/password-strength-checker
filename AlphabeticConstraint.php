@@ -1,6 +1,6 @@
 <?php
 
-class AlphabeticConstraint
+class AlphabeticConstraint implements Constraint
 {
     public function isStrong($value)
     {
