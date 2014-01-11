@@ -25,4 +25,19 @@ class AcceptanceTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue($this->checker->isStrong($password));
     }
+
+    public static function weakPasswords()
+    {
+        return [
+            ['donald1'],
+        ];
+    }
+
+    /**
+     * @dataProvider weakPasswords
+     */
+    public function testWeakPasswords($password)
+    {
+        $this->assertFalse($this->checker->isStrong($password));
+    }
 }
