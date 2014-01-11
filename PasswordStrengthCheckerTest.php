@@ -18,7 +18,21 @@ class PasswordStrengthCheckerTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($checker->isStrong('donald'));
     }
 
-    // test if only second constraint fails
+    public function testIfJustOneConstraintFailsThePasswordIsNotStrong()
+    {
+        $passes = $this->getMock('Constraint');
+        $passes->expects($this->any())
+            ->method('isStrong')
+            ->will($this->returnValue(true));
+
+        $fails = $this->getMock('Constraint');
+        $fails->expects($this->any())
+            ->method('isStrong')
+            ->will($this->returnValue(false));
+        $checker = new PasswordStrengthChecker([$passes, $fails]);
+
+        $this->assertFalse($checker->isStrong('donald'));
+    }
 }
 
 interface Constraint
